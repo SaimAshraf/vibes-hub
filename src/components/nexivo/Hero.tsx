@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
+import heroOrb from "@/assets/hero-orb.jpg";
 
 export const Hero = () => {
   return (
@@ -9,6 +10,23 @@ export const Hero = () => {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-3xl opacity-40 bg-[image:var(--gradient-glow)]" />
       <div className="absolute -top-20 -left-20 w-[400px] h-[400px] rounded-full blur-3xl bg-primary/20 animate-pulse-glow" />
       <div className="absolute -bottom-32 -right-20 w-[500px] h-[500px] rounded-full blur-3xl bg-accent/20 animate-pulse-glow" />
+
+      {/* Floating orb visual */}
+      <img
+        src={heroOrb}
+        alt="Nexivo neural intelligence orb"
+        width={1280}
+        height={1280}
+        className="hidden md:block absolute right-[-120px] top-24 w-[520px] opacity-70 mix-blend-screen animate-float pointer-events-none select-none"
+      />
+      <img
+        src={heroOrb}
+        alt=""
+        width={400}
+        height={400}
+        className="hidden md:block absolute left-[-100px] bottom-10 w-[300px] opacity-40 mix-blend-screen animate-float pointer-events-none select-none"
+        style={{ animationDelay: "1.5s" }}
+      />
 
       <div className="container relative z-10">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">

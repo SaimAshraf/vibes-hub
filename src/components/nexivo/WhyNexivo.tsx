@@ -1,4 +1,5 @@
 import { Zap, Shield, Cpu, Infinity as Inf } from "lucide-react";
+import vizChip from "@/assets/viz-chip.jpg";
 
 const items = [
   { icon: Zap, t: "Ship in weeks, not quarters", d: "Our AI-native stack lets us prototype in days and deploy in weeks." },
@@ -21,6 +22,18 @@ export const WhyNexivo = () => (
             We're a small, senior team of engineers, designers and AI strategists who care
             obsessively about ROI. No bloat, no buzzwords, no babysitting.
           </p>
+          <div className="mt-8 relative rounded-3xl overflow-hidden border border-border glow-cyan">
+            <img
+              src={vizChip}
+              alt="AI chip with glowing circuits flowing into a magenta core"
+              width={1024}
+              height={1024}
+              loading="lazy"
+              className="w-full h-64 object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+            <div className="absolute bottom-4 left-5 font-mono text-xs text-primary">// nexivo.core/v2</div>
+          </div>
         </div>
         <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
           {items.map((i) => (
