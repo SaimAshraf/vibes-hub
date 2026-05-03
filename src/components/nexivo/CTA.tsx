@@ -1,10 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar } from "lucide-react";
+import flow from "@/assets/viz-flow.jpg";
 
 export const CTA = () => (
   <section id="contact" className="py-28">
     <div className="container">
       <div className="relative overflow-hidden rounded-[2.5rem] glass p-10 md:p-20 text-center">
+        <img
+          src={flow}
+          alt=""
+          width={1280}
+          height={800}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover opacity-30 mix-blend-screen"
+        />
         <div className="absolute inset-0 bg-[image:var(--gradient-glow)] opacity-60" />
         <div className="absolute inset-0 bg-grid opacity-40" />
         <div className="absolute -top-40 -left-40 size-96 rounded-full bg-accent/30 blur-3xl animate-pulse-glow" />
