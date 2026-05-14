@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import logo from "@/assets/nexivo-logo.jpeg";
+import { StatusPill } from "./StatusPill";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -28,36 +29,37 @@ export const Navbar = () => {
       }`}
     >
       <div
-        className={`container flex items-center justify-between rounded-full px-5 py-2.5 transition-all duration-500 ${
-          scrolled ? "glass shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.3)]" : ""
+        className={`container flex items-center justify-between px-5 py-2.5 transition-all duration-500 ${
+          scrolled ? "glass rounded-md shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.25)]" : ""
         }`}
       >
         <a href="#" className="flex items-center gap-2.5 group">
-          <div className="relative h-9 w-9 rounded-xl overflow-hidden ring-1 ring-primary/30 group-hover:ring-primary transition">
+          <div className="relative h-9 w-9 rounded-md overflow-hidden ring-1 ring-primary/30 group-hover:ring-primary transition">
             <img src={logo} alt="Nexivo logo" className="h-full w-full object-cover scale-110" />
           </div>
-          <span className="font-display font-bold text-lg tracking-tight">
+          <span className="font-grotesk font-bold text-lg tracking-[0.2em]">
             NEXIVO
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-7">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition relative group"
+              className="font-mono text-[11px] uppercase tracking-widest text-muted-foreground hover:text-primary transition relative group"
             >
               {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-[image:var(--gradient-cyber)] group-hover:w-full transition-all duration-300" />
+              <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary group-hover:w-full transition-all duration-300" />
             </a>
           ))}
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="hero" size="sm" className="rounded-full" asChild>
+          <StatusPill />
+          <Button variant="hero" size="sm" className="rounded-md" asChild>
             <a href="#contact">
-              <Sparkles className="size-4" /> Talk to AI
+              Initialize <ArrowRight className="size-4" />
             </a>
           </Button>
         </div>

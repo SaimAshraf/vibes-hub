@@ -6,6 +6,7 @@ import { Solutions } from "@/components/nexivo/Solutions";
 import { Playground } from "@/components/nexivo/Playground";
 import { Work } from "@/components/nexivo/Work";
 import { WhyNexivo } from "@/components/nexivo/WhyNexivo";
+import { Process } from "@/components/nexivo/Process";
 import { Testimonials } from "@/components/nexivo/Testimonials";
 import { CTA } from "@/components/nexivo/CTA";
 import { Footer } from "@/components/nexivo/Footer";
@@ -22,6 +23,7 @@ const Index = () => {
         <Playground />
         <Work />
         <WhyNexivo />
+        <Process />
         <Testimonials />
         <CTA />
       </main>
