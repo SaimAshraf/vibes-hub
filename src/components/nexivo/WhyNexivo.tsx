@@ -1,48 +1,41 @@
-import { Zap, Shield, Cpu, Infinity as Inf } from "lucide-react";
-import vizChip from "@/assets/viz-chip.jpg";
-
-const items = [
-  { icon: Zap, t: "Ship in weeks, not quarters", d: "Our AI-native stack lets us prototype in days and deploy in weeks." },
-  { icon: Cpu, t: "End-to-end engineering", d: "From strategy and design to deployment, integration and 24/7 support." },
-  { icon: Shield, t: "Enterprise-grade security", d: "SOC2-aligned practices, encrypted pipelines, private LLM deployments." },
-  { icon: Inf, t: "Built to compound", d: "Every workflow we ship makes the next one cheaper, faster and smarter." },
+const principles = [
+  { n: "01", t: "Outcomes, not hours.", d: "We price on the metric that matters — saved hours, recovered revenue, qualified leads. Not on a timesheet." },
+  { n: "02", t: "Senior team, every seat.", d: "No interns ghost-writing your stack. The same hands that pitch you ship your code." },
+  { n: "03", t: "Production from day one.", d: "Prototypes are demos. We architect for real load, real users, real edge cases — week one." },
+  { n: "04", t: "Compounding by design.", d: "Every workflow we ship plugs into the next. Your automation gets faster and smarter every quarter." },
 ];
 
 export const WhyNexivo = () => (
   <section className="py-28 relative">
     <div className="container">
-      <div className="grid lg:grid-cols-12 gap-12">
-        <div className="lg:col-span-5">
-          <p className="font-mono text-xs uppercase tracking-[0.3em] text-primary mb-4">[ 05 / Why Nexivo ]</p>
-          <h2 className="font-display text-4xl md:text-6xl font-bold leading-tight">
-            Not another agency. <br />
-            <span className="text-gradient-brand">An AI partner.</span>
+      <div className="grid lg:grid-cols-12 gap-12 items-start">
+        <div className="lg:col-span-5 lg:sticky lg:top-28">
+          <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-6">[ 05 / manifesto.md ]</p>
+          <h2 className="font-display text-5xl md:text-7xl leading-[0.95]">
+            We don't sell <em className="italic">hours.</em>
+            <br />
+            We sell <span className="text-primary not-italic">outcomes</span>
+            <br />
+            that <em className="italic">compound.</em>
           </h2>
-          <p className="mt-6 text-muted-foreground">
-            We're a small, senior team of engineers, designers and AI strategists who care
-            obsessively about ROI. No bloat, no buzzwords, no babysitting.
-          </p>
-          <div className="mt-8 relative rounded-3xl overflow-hidden border border-border glow-cyan">
-            <img
-              src={vizChip}
-              alt="AI chip with glowing circuits flowing into a magenta core"
-              width={1024}
-              height={1024}
-              loading="lazy"
-              className="w-full h-64 object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
-            <div className="absolute bottom-4 left-5 font-mono text-xs text-primary">// nexivo.core/v2</div>
+          <div className="mt-8 panel p-4 font-mono text-[11px] scanlines max-w-sm">
+            <div className="text-muted-foreground/70 mb-2">// team.json</div>
+            <div className="text-foreground/90">{`{ size: "small", level: "senior",`}</div>
+            <div className="text-foreground/90">{`  bs: 0, slides: 0, code: ∞ }`}</div>
           </div>
         </div>
-        <div className="lg:col-span-7 grid sm:grid-cols-2 gap-5">
-          {items.map((i) => (
-            <div key={i.t} className="glass rounded-3xl p-6 hover:border-primary/50 transition group">
-              <div className="size-11 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground group-hover:glow-cyan transition">
-                <i.icon className="size-5" />
+
+        <div className="lg:col-span-7 space-y-px bg-border/60">
+          {principles.map((p) => (
+            <div key={p.n} className="bg-background p-8 group hover:bg-secondary/30 transition">
+              <div className="flex items-start gap-6">
+                <div className="font-mono text-xs text-primary pt-2 w-12 shrink-0">{p.n} / 04</div>
+                <div className="flex-1">
+                  <h3 className="font-display text-3xl md:text-4xl leading-tight mb-2">{p.t}</h3>
+                  <p className="text-muted-foreground font-grotesk leading-relaxed max-w-xl">{p.d}</p>
+                </div>
+                <div className="hidden md:block font-mono text-xs text-muted-foreground/40 group-hover:text-primary transition">▸</div>
               </div>
-              <h3 className="mt-5 font-display text-lg font-semibold">{i.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{i.d}</p>
             </div>
           ))}
         </div>
