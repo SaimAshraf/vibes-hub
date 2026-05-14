@@ -1,85 +1,122 @@
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play, Sparkles } from "lucide-react";
-import heroOrb from "@/assets/hero-orb.jpg";
+import { ArrowRight, Play } from "lucide-react";
+import { NodeGraph } from "./NodeGraph";
+
+const bootLines = [
+  "$ nexivo init --client=visitor",
+  "› loading runtime modules ........ ok",
+  "› spawning 4 agents .............. ok",
+  "› compiling intelligence ......... ok",
+  "› ready.",
+];
 
 export const Hero = () => {
-  return (
-    <section className="relative pt-36 pb-24 md:pt-44 md:pb-32 overflow-hidden">
-      {/* background grid + glows */}
-      <div className="absolute inset-0 bg-grid opacity-60" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full blur-3xl opacity-40 bg-[image:var(--gradient-glow)]" />
-      <div className="absolute -top-20 -left-20 w-[400px] h-[400px] rounded-full blur-3xl bg-primary/20 animate-pulse-glow" />
-      <div className="absolute -bottom-32 -right-20 w-[500px] h-[500px] rounded-full blur-3xl bg-accent/20 animate-pulse-glow" />
+  const [step, setStep] = useState(0);
+  useEffect(() => {
+    if (step >= bootLines.length) return;
+    const t = setTimeout(() => setStep((s) => s + 1), step === 0 ? 350 : 280);
+    return () => clearTimeout(t);
+  }, [step]);
 
-      {/* Floating orb visual */}
-      <img
-        src={heroOrb}
-        alt="Nexivo neural intelligence orb"
-        width={1280}
-        height={1280}
-        className="hidden md:block absolute right-[-120px] top-24 w-[520px] opacity-70 mix-blend-screen animate-float pointer-events-none select-none"
-      />
-      <img
-        src={heroOrb}
-        alt=""
-        width={400}
-        height={400}
-        className="hidden md:block absolute left-[-100px] bottom-10 w-[300px] opacity-40 mix-blend-screen animate-float pointer-events-none select-none"
-        style={{ animationDelay: "1.5s" }}
-      />
+  return (
+    <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden">
+      <div className="absolute inset-0 bg-grid opacity-50" />
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] rounded-full blur-3xl opacity-30 bg-[image:var(--gradient-glow)]" />
 
       <div className="container relative z-10">
-        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-mono text-primary mb-8 animate-float">
-            <span className="size-2 rounded-full bg-primary animate-pulse-glow shadow-[0_0_12px_hsl(var(--primary))]" />
-            v1.0 · Next-Vision Organization
-          </div>
-
-          <h1 className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight">
-            Intelligence that <span className="text-gradient-brand">scales.</span>
-            <br />
-            Automation that <span className="text-gradient">works.</span>
-          </h1>
-
-          <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            We don't just build software. We engineer AI agents, autonomous workflows
-            and bespoke platforms that work for you{" "}
-            <span className="text-foreground font-medium">24/7.</span>
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
-            <Button variant="hero" size="xl" asChild>
-              <a href="#contact">
-                <Sparkles className="size-5" />
-                Launch Your AI Audit
-                <ArrowRight className="size-5" />
-              </a>
-            </Button>
-            <Button variant="neon" size="xl" asChild>
-              <a href="#work">
-                <Play className="size-4" /> See Our Work
-              </a>
-            </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 w-full max-w-4xl">
-            {[
-              { v: "120+", l: "Projects Delivered" },
-              { v: "1.2M", l: "Hours Automated" },
-              { v: "4.8x", l: "Avg. ROI" },
-              { v: "24/7", l: "AI Uptime" },
-            ].map((s) => (
-              <div key={s.l} className="glass rounded-2xl p-5 hover:border-primary/50 transition group">
-                <div className="font-display text-3xl md:text-4xl font-bold text-gradient">
-                  {s.v}
-                </div>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground mt-2">
-                  {s.l}
-                </div>
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-7">
+            {/* Boot terminal */}
+            <div className="panel p-4 font-mono text-[11px] sm:text-xs mb-8 max-w-md scanlines">
+              <div className="flex items-center gap-1.5 pb-2 mb-2 border-b border-border/60">
+                <span className="size-2 rounded-full bg-signal" />
+                <span className="size-2 rounded-full bg-yellow-500/60" />
+                <span className="size-2 rounded-full bg-primary" />
+                <span className="ml-2 text-muted-foreground/70">nexivo@os ~ boot</span>
               </div>
-            ))}
+              {bootLines.slice(0, step).map((l, i) => (
+                <div key={i} className={i === bootLines.length - 1 ? "text-primary" : "text-foreground/80"}>
+                  {l}
+                </div>
+              ))}
+              {step < bootLines.length && (
+                <div className="text-foreground/80">
+                  {bootLines[step]?.slice(0, 0)}<span className="inline-block w-2 h-3 bg-primary animate-blink align-middle" />
+                </div>
+              )}
+            </div>
+
+            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-primary mb-5">
+              [ runtime · v2.1 · bengaluru ]
+            </div>
+
+            <h1 className="font-display text-[3.25rem] sm:text-7xl md:text-[5.5rem] leading-[0.95] tracking-tight">
+              We build the <em className="text-primary not-italic">agents</em>
+              <br />
+              that <span className="italic">run</span> your
+              <br />
+              <span className="text-gradient-brand">business.</span>
+            </h1>
+
+            <p className="mt-8 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed font-grotesk">
+              Nexivo is an automation OS. We engineer AI agents, voice bots and
+              autonomous workflows that <span className="text-foreground">don't sleep, don't quit, don't forget.</span>
+            </p>
+
+            <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <Button variant="hero" size="xl" asChild>
+                <a href="#contact">
+                  Initialize audit <ArrowRight className="size-5" />
+                </a>
+              </Button>
+              <Button variant="neon" size="xl" asChild>
+                <a href="#playground">
+                  <Play className="size-4" /> Talk to Nexa
+                </a>
+              </Button>
+            </div>
           </div>
+
+          {/* Node graph panel */}
+          <div className="lg:col-span-5">
+            <div className="panel relative overflow-hidden p-5 scanlines">
+              <div className="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-3">
+                <span>// workflow.runtime</span>
+                <span className="text-primary flex items-center gap-1.5">
+                  <span className="size-1.5 rounded-full bg-primary animate-pulse" /> running
+                </span>
+              </div>
+              <div className="aspect-[5/3]">
+                <NodeGraph />
+              </div>
+              <div className="mt-3 grid grid-cols-3 gap-2 font-mono text-[9px]">
+                <div className="panel p-2"><div className="text-muted-foreground/60">latency</div><div className="text-primary">84ms</div></div>
+                <div className="panel p-2"><div className="text-muted-foreground/60">success</div><div className="text-primary">99.7%</div></div>
+                <div className="panel p-2"><div className="text-muted-foreground/60">runs/24h</div><div className="text-primary">12,481</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats strip */}
+        <div className="mt-20 border-y border-border/60 grid grid-cols-2 md:grid-cols-4 divide-x divide-border/60">
+          {[
+            { v: "120+", l: "Projects shipped" },
+            { v: "1.2M", l: "Hours automated" },
+            { v: "4.8×", l: "Average ROI" },
+            { v: "24/7", l: "Agent uptime" },
+          ].map((s, i) => (
+            <div key={s.l} className="p-6 group">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-2">
+                0{i + 1} · metric
+              </div>
+              <div className="font-display text-4xl md:text-5xl text-foreground group-hover:text-primary transition">
+                {s.v}
+              </div>
+              <div className="text-xs text-muted-foreground mt-1">{s.l}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
