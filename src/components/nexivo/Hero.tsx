@@ -20,7 +20,7 @@ export const Hero = () => {
             </h1>
 
             <p className="mt-6 md:mt-8 text-base md:text-lg text-muted-foreground max-w-xl leading-relaxed font-grotesk">
-              Nexivo is an automation OS. We engineer AI agents, voice bots and
+              Nexivo is your automation team. We engineer AI agents, voice bots and
               autonomous workflows that <span className="text-foreground">don't sleep, don't quit, don't forget.</span>
             </p>
 
