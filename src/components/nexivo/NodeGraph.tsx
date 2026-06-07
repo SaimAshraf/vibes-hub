@@ -28,12 +28,7 @@ export const NodeGraph = () => {
           <g key={i}>
             <path
               d={`M${A.x + 40} ${A.y} C ${(A.x + B.x) / 2} ${A.y}, ${(A.x + B.x) / 2} ${B.y}, ${B.x} ${B.y}`}
-              stroke="url(#wire)" strokeWidth="1.2" fill="none"
-            />
-            <path
-              d={`M${A.x + 40} ${A.y} C ${(A.x + B.x) / 2} ${A.y}, ${(A.x + B.x) / 2} ${B.y}, ${B.x} ${B.y}`}
-              stroke="hsl(var(--primary))" strokeWidth="1.5" fill="none"
-              className="animate-dash-flow" style={{ animationDelay: `${i * 0.2}s` }}
+              stroke="url(#wire)" strokeWidth="1.5" fill="none"
             />
           </g>
         );

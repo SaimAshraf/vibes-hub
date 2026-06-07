@@ -55,7 +55,7 @@ export const Solutions = () => {
             </h2>
           </div>
           <p className="text-muted-foreground font-grotesk max-w-md">
-            Same OS, different runtime. Pick your industry — the workflow rewires itself.
+            Different industry, same playbook. Pick yours — the workflow rewires itself.
           </p>
         </div>
 
@@ -106,8 +106,8 @@ export const Solutions = () => {
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="text-foreground/90">{step}</span>
-                      {i < it.flow.length - 1 && (
-                        <span className="flex-1 border-t border-dashed border-primary/30" />
+                       {i < it.flow.length - 1 && (
+                        <span className="flex-1 border-t border-primary/20" />
                       )}
                       {i < it.flow.length - 1 && <span className="text-primary">▸</span>}
                     </div>
