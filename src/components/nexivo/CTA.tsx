@@ -65,7 +65,8 @@ export const CTA = () => {
               <span>▸ no sales pitch</span>
               <span>▸ no NDA needed</span>
               <span>▸ written follow-up</span>
-              <span>▸ <a href="mailto:hello@nexivo.com" className="text-primary hover:underline">hello@nexivo.com</a></span>
+              <span>▸ <a href="mailto:nexivoservices@gmail.com" className="text-primary hover:underline">nexivoservices@gmail.com</a></span>
+              <span>▸ <a href="https://www.instagram.com/nexivoservices?utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">@nexivoservices</a></span>
             </div>
           </div>
         </div>

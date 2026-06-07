@@ -8,7 +8,7 @@ const events = [
   "agent_03 booked meeting #918",
   "rag.index rebuilt · 1.4M chunks",
   "alert · cart-recovery sent 41",
-  "deploy nexivo.os · build #2147 · green",
+  "deploy nexivo · build #2147 · green",
   "stripe.charge $1,240 · auto-reconciled",
   "support ticket #5512 · resolved by agent_11",
 ];

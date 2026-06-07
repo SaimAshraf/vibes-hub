@@ -1,14 +1,13 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
-import logo from "@/assets/nexivo-logo.jpeg";
-import { StatusPill } from "./StatusPill";
+import logo from "@/assets/nexivo-logo.png";
 
 const links = [
   { href: "#services", label: "Services" },
   { href: "#solutions", label: "Solutions" },
   { href: "#playground", label: "AI Lab" },
-  { href: "#work", label: "Work" },
+  { href: "#work", label: "Portfolio" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -33,11 +32,9 @@ export const Navbar = () => {
           scrolled ? "glass rounded-md shadow-[0_8px_40px_-12px_hsl(var(--primary)/0.25)]" : ""
         }`}
       >
-        <a href="#" className="flex items-center gap-2.5 group">
-          <div className="relative h-9 w-9 rounded-md overflow-hidden ring-1 ring-primary/30 group-hover:ring-primary transition">
-            <img src={logo} alt="Nexivo logo" className="h-full w-full object-cover scale-110" />
-          </div>
-          <span className="font-grotesk font-bold text-lg tracking-[0.2em]">
+        <a href="#" className="flex items-center gap-2 group">
+          <img src={logo} alt="Nexivo logo" className="h-8 w-8 object-contain" />
+          <span className="font-grotesk font-bold text-base sm:text-lg tracking-[0.2em]">
             NEXIVO
           </span>
         </a>
@@ -56,7 +53,6 @@ export const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <StatusPill />
           <Button variant="hero" size="sm" className="rounded-md" asChild>
             <a href="#contact">
               Initialize <ArrowRight className="size-4" />
