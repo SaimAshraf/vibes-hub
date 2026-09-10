@@ -1,6 +1,7 @@
 import { ChefHat, CloudOff, MapPinCheck, MessageCircleMore, MonitorSmartphone, ReceiptText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactBand, Eyebrow, FeatureList, NexPosScreen, OfflineBadge } from "@/components/nexivo/Visuals";
+import { LetsTalkButton, useLetsTalk } from "@/components/nexivo/LetsTalk";
 import hospitality from "@/assets/nexivo-hospitality.jpg";
 
 const groups = [

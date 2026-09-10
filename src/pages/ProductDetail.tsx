@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { products } from "@/data/products";
 import { ContactBand, Eyebrow, FeatureList, ProductLink } from "@/components/nexivo/Visuals";
+import { LetsTalkButton } from "@/components/nexivo/LetsTalk";
 import NotFound from "./NotFound";
 
 const ProductDetail = () => {
@@ -16,7 +17,7 @@ const ProductDetail = () => {
         <p className="text-sm text-muted-foreground">{product.descriptor}</p>
         <h1 className="display-title">{product.name}</h1>
         <p className="lede">{product.promise}</p>
-        <a href="mailto:nexivoservices@gmail.com" className="text-link">Request a tailored demo</a>
+        <div className="mt-6"><LetsTalkButton size="lg">Request a tailored demo</LetsTalkButton></div>
       </div>
       <div className="product-photo-wrap">
         <img src={product.image} alt={`${product.audience} using connected operations software`} width={1600} height={1100} />
