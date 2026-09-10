@@ -1,6 +1,7 @@
 import { ArrowUpRight, Check, WifiOff } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { LetsTalkButton } from "./LetsTalk";
 
 export const Eyebrow = ({ children }: { children: React.ReactNode }) => (
   <div className="eyebrow"><span className="signal-dot" />{children}</div>
@@ -35,10 +36,33 @@ export const ContactBand = ({ title = "Build what your business needs next." }: 
   <section className="contact-band">
     <div className="container grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
       <div><Eyebrow>Start a conversation</Eyebrow><h2 className="section-title max-w-3xl">{title}</h2></div>
-      <Button variant="hero" size="xl" asChild><a href="mailto:nexivoservices@gmail.com">nexivoservices@gmail.com <ArrowUpRight /></a></Button>
+      <LetsTalkButton variant="secondary">Let’s talk</LetsTalkButton>
     </div>
   </section>
 );
+
+/** Live automation pipeline panel — the hero's "it's running" moment */
+export const AutomationPanel = () => {
+  const rows = [
+    { t: "Message received", s: "WhatsApp · 0.2s" },
+    { t: "Intent understood", s: "AI agent · 0.6s" },
+    { t: "Order created", s: "POS · 0.9s" },
+    { t: "Invoice + report sent", s: "Automation · 1.4s" },
+  ];
+  return (
+    <div className="auto-panel">
+      <div className="screen-bar"><span>NEXIVO / AUTOMATION RUN</span><span className="text-primary">● LIVE</span></div>
+      <div className="auto-rows">
+        {rows.map((r, i) => (
+          <div key={r.t} style={{ animationDelay: `${i * 0.7}s` }}>
+            <i /><span><b>{r.t}</b>{r.s}</span><Check />
+          </div>
+        ))}
+      </div>
+      <div className="auto-foot"><span>Runs today</span><b>1,284</b><span>Human hours saved</span><b>96</b></div>
+    </div>
+  );
+};
 
 export const FeatureList = ({ items }: { items: string[] }) => (
   <ul className="feature-list">{items.map(item => <li key={item}><Check />{item}</li>)}</ul>

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { BootScreen, RouteProgress } from "./Motion";
+import { LetsTalkProvider } from "./LetsTalk";
 
 export const SiteShell = () => {
   const { pathname } = useLocation();
@@ -12,12 +13,14 @@ export const SiteShell = () => {
   }, [pathname]);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
-      <BootScreen />
-      <RouteProgress trigger={pathname} />
-      <Navbar />
-      <main key={pathname} className="page-enter"><Outlet /></main>
-      <Footer />
-    </div>
+    <LetsTalkProvider>
+      <div className="min-h-screen overflow-x-hidden bg-background text-foreground">
+        <BootScreen />
+        <RouteProgress trigger={pathname} />
+        <Navbar />
+        <main key={pathname} className="page-enter"><Outlet /></main>
+        <Footer />
+      </div>
+    </LetsTalkProvider>
   );
 };
