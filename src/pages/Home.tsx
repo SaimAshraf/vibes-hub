@@ -1,11 +1,13 @@
-import { ArrowRight, Bot, Boxes, BrainCircuit, Factory, Gauge, MessagesSquare, PhoneCall, ShieldCheck, ShoppingBag, Sparkles, Workflow, Zap } from "lucide-react";
+import { Bot, Boxes, BrainCircuit, Factory, Gauge, MessagesSquare, PhoneCall, ShoppingBag, Sparkles, Workflow } from "lucide-react";
+import { AutomationPanel, ContactBand, Eyebrow, NexPosScreen, ProductLink } from "@/components/nexivo/Visuals";
+import { LetsTalkButton } from "@/components/nexivo/LetsTalk";
+import { Counter, Reveal, RotatingWord, SmartImage } from "@/components/nexivo/Motion";
 import { Button } from "@/components/ui/button";
-import { ContactBand, Eyebrow, NexPosScreen, ProductLink } from "@/components/nexivo/Visuals";
-import { Reveal, SmartImage } from "@/components/nexivo/Motion";
 import { products } from "@/data/products";
 import hospitality from "@/assets/nexivo-hospitality.jpg";
 import factory from "@/assets/nexivo-factory.jpg";
-import aiOps from "@/assets/nexivo-ai-ops.jpg";
+import intelligence from "@/assets/nexivo-intelligence.jpg";
+import team from "@/assets/nexivo-team.jpg";
 
 const capabilities = [
   { i: BrainCircuit, t: "AI agents", d: "Chat, sales and support agents that answer, qualify and act on their own." },
@@ -14,6 +16,15 @@ const capabilities = [
   { i: Boxes, t: "Business software", d: "POS, ERP, inventory, dashboards and portals built for your operation." },
   { i: Sparkles, t: "Custom builds", d: "Web apps, mobile apps, SaaS products and internal tools from scratch." },
   { i: Gauge, t: "Data & reporting", d: "Live numbers owners actually read—on screen or straight to WhatsApp." },
+];
+
+const marquee = ["AI agents", "Voice bots", "WhatsApp automation", "POS & ERP", "Inventory sync", "Auto invoicing", "Live dashboards", "Custom software", "Lead follow-up", "Kitchen orders"];
+
+const steps = [
+  { n: "01", t: "Audit", d: "We map the repetitive work eating your team's day." },
+  { n: "02", t: "Design", d: "We draw the flow: what triggers, what decides, what acts." },
+  { n: "03", t: "Build", d: "Agents, automations and software shipped in short cycles." },
+  { n: "04", t: "Run", d: "We monitor it live, tune it and keep it working after launch." },
 ];
 
 const edge = [
@@ -30,18 +41,31 @@ const Home = () => {
       <div className="container hero-grid-new">
         <div className="hero-copy-new stagger-in">
           <Eyebrow>AI · Automation · Business software</Eyebrow>
-          <h1 className="display-title">Nexivo builds the systems behind <em>moving businesses.</em></h1>
-          <p className="lede">From the first customer message to the final invoice, we connect intelligence with operations.</p>
-          <div className="flex flex-wrap gap-3"><Button variant="hero" size="xl" asChild><a href="mailto:nexivoservices@gmail.com">Start a project <ArrowRight /></a></Button><Button variant="neon" size="xl" asChild><a href="/products/nexpos">Meet NexPos</a></Button></div>
+          <h1 className="display-title">We build the <em><RotatingWord words={["agents", "automations", "systems", "software"]} /></em> that run your business.</h1>
+          <p className="lede">From the first customer message to the final invoice—work that used to need people watching it now runs itself.</p>
+          <div className="flex flex-wrap gap-3"><LetsTalkButton>Let’s talk</LetsTalkButton><Button variant="neon" size="xl" asChild><a href="/products/nexpos">Meet NexPos</a></Button></div>
         </div>
-        <div className="hero-collage float-slow" aria-label="Nexivo connected business ecosystem">
-          <SmartImage wrapperClassName="hero-photo-main" className="hero-photo-main" src={hospitality} alt="Restaurant team working around a connected point of sale" width={1600} height={1100} />
-          <div className="hero-screen"><NexPosScreen compact /></div>
-          <SmartImage wrapperClassName="hero-photo-secondary" className="hero-photo-secondary" src={aiOps} alt="Business team managing AI-driven customer operations" loading="lazy" width={1600} height={1100} />
-          <div className="floating-note"><Bot /><span><b>AI agent</b>Lead qualified</span></div>
+        <div className="hero-collage float-slow" aria-label="Nexivo automation in motion">
+          <SmartImage wrapperClassName="hero-photo-main" className="hero-photo-main" src={intelligence} alt="Layered data planes representing Nexivo's connected intelligence" width={1600} height={1100} />
+          <div className="hero-screen"><AutomationPanel /></div>
+          <SmartImage wrapperClassName="hero-photo-secondary" className="hero-photo-secondary" src={team} alt="Nexivo team monitoring automated business operations" loading="lazy" width={1600} height={1100} />
+          <div className="floating-note"><Bot /><span><b>AI agent</b>Lead qualified · 0.8s</span></div>
         </div>
       </div>
       <div className="container hero-index"><span>01 — Intelligence</span><span>02 — Automation</span><span>03 — Software</span></div>
+    </section>
+
+    <div className="marquee" aria-hidden="true">
+      <div className="marquee-track">{[...marquee, ...marquee].map((m, i) => <span key={i}>{m}<i>◆</i></span>)}</div>
+    </div>
+
+    <section className="section container">
+      <div className="metric-row">
+        <Reveal><b><Counter to={120} suffix="+" /></b><span>Systems shipped</span></Reveal>
+        <Reveal delay={90}><b><Counter to={1.2} decimals={1} suffix="M" /></b><span>Hours automated</span></Reveal>
+        <Reveal delay={180}><b><Counter to={99.7} decimals={1} suffix="%" /></b><span>Run success rate</span></Reveal>
+        <Reveal delay={270}><b>24/7</b><span>Agents on duty</span></Reveal>
+      </div>
     </section>
 
     <section className="section container">
@@ -54,6 +78,13 @@ const Home = () => {
       <Reveal delay={120}><ProductLink to="/services">See all services</ProductLink></Reveal>
     </section>
 
+    <section className="section container">
+      <Reveal className="section-heading"><div><Eyebrow>How we work</Eyebrow><h2 className="section-title">Four steps from busywork to running by itself.</h2></div><p>Short cycles, visible progress, and a system that keeps working after we hand it over.</p></Reveal>
+      <div className="step-rail">
+        {steps.map((s, n) => <Reveal key={s.n} delay={n * 90} className="step-cell"><span>{s.n}</span><h3>{s.t}</h3><p>{s.d}</p></Reveal>)}
+      </div>
+    </section>
+
     <section className="section container flagship-grid">
       <Reveal className="flagship-photo"><SmartImage src={hospitality} alt="Busy modern restaurant service powered by NexPos" loading="lazy" width={1600} height={1100} /><span>Flagship product</span></Reveal>
       <Reveal delay={90} className="flagship-copy"><Eyebrow>NexPos by Nexivo</Eyebrow><h2 className="section-title">Hospitality software that knows the dinner rush.</h2><p className="lede">POS, kitchen, recipes, stock, tax compliance and owner reporting—built together for food businesses in Pakistan.</p><ProductLink to="/products/nexpos">Enter NexPos</ProductLink></Reveal>
@@ -63,6 +94,7 @@ const Home = () => {
     <section className="section section-contrast">
       <div className="container"><Reveal className="section-heading"><div><Eyebrow>The connected company</Eyebrow><h2 className="section-title">One studio. Every operational layer.</h2></div><p>We do not drop another disconnected tool into your business. We design the links between conversations, decisions and daily work.</p></Reveal>
         <div className="flow-line">
+          <div className="flow-pulse" aria-hidden="true" />
           {[{i:MessagesSquare,t:'Customer speaks'},{i:Bot,t:'AI understands'},{i:Boxes,t:'Workflow acts'},{i:ShoppingBag,t:'Business fulfils'}].map(({i:Icon,t},n)=><Reveal key={t} delay={n*110}><Icon/><span>{t}</span></Reveal>)}
         </div>
       </div>
