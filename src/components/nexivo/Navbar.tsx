@@ -47,7 +47,7 @@ export const Navbar = () => {
           {links.map((l) => (
             <NavLink
               key={l.href}
-              href={l.href}
+              to={l.href}
               className={({isActive}) => `text-[11px] uppercase font-semibold text-muted-foreground hover:text-primary transition relative group ${isActive ? "text-primary" : ""}`}
             >
               {l.label}
@@ -77,7 +77,7 @@ export const Navbar = () => {
             {links.map((l) => (
               <NavLink
                 key={l.href}
-                href={l.href}
+                to={l.href}
                 onClick={() => setOpen(false)}
                 className="text-lg border-b border-border py-3 text-muted-foreground hover:text-foreground"
               >
