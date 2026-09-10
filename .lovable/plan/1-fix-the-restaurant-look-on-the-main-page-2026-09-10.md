@@ -1,4 +1,7 @@
-# Homepage wow pass + "Let's talk" guided flow
+yes this is good and also do more thing on main page this should feel like automation  
+  
+  
+Homepage wow pass + "Let's talk" guided flow
 
 ## 1. Fix the restaurant look on the main page
 
