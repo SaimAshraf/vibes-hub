@@ -1,22 +1,14 @@
-import { Bot, Boxes, BrainCircuit, Factory, Gauge, MessagesSquare, PhoneCall, ShoppingBag, Sparkles, Workflow } from "lucide-react";
+import { Bot, Boxes, Factory, MessagesSquare, ShoppingBag } from "lucide-react";
 import { AutomationPanel, ContactBand, Eyebrow, NexPosScreen, ProductLink } from "@/components/nexivo/Visuals";
 import { LetsTalkButton } from "@/components/nexivo/LetsTalk";
 import { Counter, Reveal, RotatingWord, SmartImage } from "@/components/nexivo/Motion";
 import { Button } from "@/components/ui/button";
+import CapabilityShowcase from "@/components/nexivo/CapabilityShowcase";
 import { products } from "@/data/products";
 import hospitality from "@/assets/nexivo-hospitality.jpg";
 import factory from "@/assets/nexivo-factory.jpg";
 import intelligence from "@/assets/nexivo-intelligence.jpg";
 import team from "@/assets/nexivo-team.jpg";
-
-const capabilities = [
-  { i: BrainCircuit, t: "AI agents", d: "Chat, sales and support agents that answer, qualify and act on their own." },
-  { i: PhoneCall, t: "Voice bots", d: "AI receptionists that pick up, book appointments and follow up by call." },
-  { i: Workflow, t: "Automation", d: "WhatsApp, CRM, invoicing and reporting workflows stitched end to end." },
-  { i: Boxes, t: "Business software", d: "POS, ERP, inventory, dashboards and portals built for your operation." },
-  { i: Sparkles, t: "Custom builds", d: "Web apps, mobile apps, SaaS products and internal tools from scratch." },
-  { i: Gauge, t: "Data & reporting", d: "Live numbers owners actually read—on screen or straight to WhatsApp." },
-];
 
 const marquee = ["AI agents", "Voice bots", "WhatsApp automation", "POS & ERP", "Inventory sync", "Auto invoicing", "Live dashboards", "Custom software", "Lead follow-up", "Kitchen orders"];
 
@@ -61,20 +53,16 @@ const Home = () => {
 
     <section className="section container">
       <div className="metric-row">
-        <Reveal><b><Counter to={120} suffix="+" /></b><span>Systems shipped</span></Reveal>
-        <Reveal delay={90}><b><Counter to={1.2} decimals={1} suffix="M" /></b><span>Hours automated</span></Reveal>
-        <Reveal delay={180}><b><Counter to={99.7} decimals={1} suffix="%" /></b><span>Run success rate</span></Reveal>
-        <Reveal delay={270}><b>24/7</b><span>Agents on duty</span></Reveal>
+        <Reveal><b><Counter to={120} suffix="+" /></b><span>Systems shipped</span><em><i style={{width:"82%"}}/></em></Reveal>
+        <Reveal delay={90}><b><Counter to={1.2} decimals={1} suffix="M" /></b><span>Hours automated</span><em><i style={{width:"68%"}}/></em></Reveal>
+        <Reveal delay={180}><b><Counter to={99.7} decimals={1} suffix="%" /></b><span>Run success rate</span><em><i style={{width:"97%"}}/></em></Reveal>
+        <Reveal delay={270}><b>24/7</b><span>Agents on duty</span><em><i style={{width:"100%"}}/></em></Reveal>
       </div>
     </section>
 
     <section className="section container">
       <Reveal className="section-heading"><div><Eyebrow>What we do</Eyebrow><h2 className="section-title">Intelligence, automation and software—under one roof.</h2></div><p>Six capabilities we combine into one working system for your business, instead of six tools you have to babysit.</p></Reveal>
-      <div className="cap-grid">
-        {capabilities.map(({ i: Icon, t, d }, n) => (
-          <Reveal key={t} delay={n * 70} className="cap-card"><Icon /><h3>{t}</h3><p>{d}</p></Reveal>
-        ))}
-      </div>
+      <CapabilityShowcase />
       <Reveal delay={120}><ProductLink to="/services">See all services</ProductLink></Reveal>
     </section>
 
