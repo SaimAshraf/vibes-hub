@@ -1,8 +1,15 @@
-import { ChefHat, CloudOff, MapPinCheck, MessageCircleMore, MonitorSmartphone, ReceiptText } from "lucide-react";
+import { ArrowUpRight, ChefHat, CloudOff, MapPinCheck, MessageCircleMore, MonitorSmartphone, ReceiptText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactBand, Eyebrow, FeatureList, NexPosScreen, OfflineBadge } from "@/components/nexivo/Visuals";
-import { LetsTalkButton, useLetsTalk } from "@/components/nexivo/LetsTalk";
+import { SocialRow } from "@/components/nexivo/Socials";
+import { liveSites, nexposSocials } from "@/data/site";
 import hospitality from "@/assets/nexivo-hospitality.jpg";
+
+const SiteButton = ({ label = "Visit nexposltd.com", variant = "hero", className = "" }: { label?: string; variant?: any; className?: string }) => (
+  <Button variant={variant} size="lg" className={className} asChild>
+    <a href={liveSites.nexpos} target="_blank" rel="noopener noreferrer">{label} <ArrowUpRight className="size-4" /></a>
+  </Button>
+);
 
 const groups = [
   ["Core operations", "POS & billing", "Table management", "Kitchen display", "Recipe costing"],
