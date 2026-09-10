@@ -179,3 +179,4 @@
 .lt-back:hover{color:hsl(var(--primary))}
 
 @media(max-width:767px){.metric-row{grid-template-columns:1fr 1fr}.metric-row>div{border-bottom:1px solid hsl(var(--border))}.metric-row>div:nth-child(2n){border-right:0}.step-rail{grid-template-columns:1fr}.marquee-track span{font-size:1.15rem}.lt-panel{padding:1rem}}
+@media(max-width:767px){.hero-collage{min-height:540px}.hero-photo-main{width:100%;height:46%;top:0}.hero-photo-secondary{width:38%;height:22%;bottom:auto;top:40%;left:0;z-index:4}.hero-screen{width:100%;right:0;bottom:0}.floating-note{top:2%;left:auto;right:0}}
