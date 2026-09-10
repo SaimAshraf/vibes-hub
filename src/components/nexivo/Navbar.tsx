@@ -83,9 +83,7 @@ export const Navbar = () => {
                 {l.label}
               </NavLink>
             ))}
-            <Button variant="hero" size="sm" className="mt-3" asChild>
-              <Link to="/contact">Start a project</Link>
-            </Button>
+            <LetsTalkButton variant="hero" size="sm" className="mt-3">Start a project</LetsTalkButton>
           </div>
         </div>
       )}
