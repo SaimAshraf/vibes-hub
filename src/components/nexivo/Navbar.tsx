@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "@/assets/nexivo-logo.png";
+import { LetsTalkButton } from "./LetsTalk";
 
 const links = [
   { href: "/services", label: "Services" },
@@ -57,9 +58,7 @@ export const Navbar = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <Button variant="hero" size="sm" className="rounded-md" asChild>
-            <Link to="/contact">Let’s talk <ArrowRight className="size-4" /></Link>
-          </Button>
+          <LetsTalkButton variant="hero" size="sm" className="rounded-md">Let’s talk</LetsTalkButton>
         </div>
 
         <Button variant="ghost" size="icon"

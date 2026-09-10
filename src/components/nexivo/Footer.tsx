@@ -1,4 +1,5 @@
 import logo from "@/assets/nexivo-logo.png";
+import { LetsTalkButton } from "./LetsTalk";
 import { Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -30,7 +31,8 @@ export const Footer = () => (
         </div>
         <div className="md:col-span-4">
           <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-4">// channel</div>
-          <a href="mailto:nexivoservices@gmail.com" className="font-display text-xl sm:text-2xl text-foreground hover:text-primary transition break-all">nexivoservices@gmail.com</a>
+          <LetsTalkButton size="lg">Let’s talk</LetsTalkButton>
+          <a href="mailto:nexivoservices@gmail.com" className="block mt-4 text-sm text-muted-foreground hover:text-primary transition break-all">nexivoservices@gmail.com</a>
           <div className="mt-4">
             <a
               href="https://www.instagram.com/nexivoservices?utm_source=qr"
