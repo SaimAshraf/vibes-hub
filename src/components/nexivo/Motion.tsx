@@ -91,6 +91,41 @@ export const BootScreen = () => {
   );
 };
 
+/** Count-up number that runs when scrolled into view */
+export const Counter = ({ to, suffix = "", prefix = "", decimals = 0 }: { to: number; suffix?: string; prefix?: string; decimals?: number }) => {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const [v, setV] = useState(0);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      const start = performance.now();
+      const dur = 1400;
+      const tick = (now: number) => {
+        const p = Math.min((now - start) / dur, 1);
+        setV(to * (1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.4 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [to]);
+  return <span ref={ref}>{prefix}{v.toFixed(decimals)}{suffix}</span>;
+};
+
+/** Headline word that cycles */
+export const RotatingWord = ({ words, interval = 2200 }: { words: string[]; interval?: number }) => {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const t = window.setInterval(() => setI(n => (n + 1) % words.length), interval);
+    return () => window.clearInterval(t);
+  }, [words.length, interval]);
+  return <span className="rot-word" key={i}>{words[i]}</span>;
+};
+
 /** Thin top progress bar on route change */
 export const RouteProgress = ({ trigger }: { trigger: string }) => {
   const [active, setActive] = useState(false);
