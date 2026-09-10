@@ -1,5 +1,6 @@
 import logo from "@/assets/nexivo-logo.png";
 import { Instagram } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => (
   <footer className="border-t border-border mt-10">
@@ -15,16 +16,16 @@ export const Footer = () => (
             </div>
           </div>
           <p className="mt-6 font-display text-2xl sm:text-3xl leading-tight max-w-md">
-            Engineering intelligence that <em className="text-primary not-italic">never clocks out.</em>
+            Intelligence connected to <em className="text-primary not-italic">real operations.</em>
           </p>
         </div>
         <div className="md:col-span-3">
           <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-4">// explore</div>
           <ul className="space-y-2 text-sm font-grotesk">
-            <li><a href="#services" className="hover:text-primary transition">Modules</a></li>
-            <li><a href="#solutions" className="hover:text-primary transition">Industries</a></li>
-            <li><a href="#playground" className="hover:text-primary transition">AI Lab</a></li>
-            <li><a href="#work" className="hover:text-primary transition">Portfolio</a></li>
+            <li><Link to="/services" className="hover:text-primary transition">Services</Link></li>
+            <li><Link to="/products" className="hover:text-primary transition">Products</Link></li>
+            <li><Link to="/products/nexpos" className="hover:text-primary transition">NexPos</Link></li>
+            <li><Link to="/work" className="hover:text-primary transition">Work</Link></li>
           </ul>
         </div>
         <div className="md:col-span-4">
@@ -44,7 +45,7 @@ export const Footer = () => (
       </div>
 
       <div className="mt-12 pt-6 border-t border-border/60 flex flex-col sm:flex-row justify-between gap-3 text-[11px] text-muted-foreground font-mono">
-        <span>© {new Date().getFullYear()} nexivo · made in india</span>
+        <span>© {new Date().getFullYear()} Nexivo AI (Private) Limited</span>
         <span className="flex items-center gap-1.5">
           <span className="size-1.5 rounded-full bg-primary animate-pulse" />
           all systems operational
