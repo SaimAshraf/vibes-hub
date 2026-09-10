@@ -75,8 +75,12 @@ const CapabilityShowcase = () => {
   }, [held]);
 
   useEffect(() => {
-    const el = trackRef.current?.children[active] as HTMLElement | undefined;
-    el?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    const track = trackRef.current;
+    const el = track?.children[active] as HTMLElement | undefined;
+    if (!track || !el) return;
+    if (track.scrollWidth <= track.clientWidth + 4) return; // desktop: no horizontal track
+    const left = el.offsetLeft - (track.clientWidth - el.offsetWidth) / 2;
+    track.scrollTo({ left, behavior: "smooth" });
   }, [active]);
 
   const Preview = previews[active];
