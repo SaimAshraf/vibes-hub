@@ -52,7 +52,7 @@ export const SmartImage = ({
 }: React.ImgHTMLAttributes<HTMLImageElement> & { wrapperClassName?: string }) => {
   const [loaded, setLoaded] = useState(false);
   return (
-    <span className={`img-frame ${loaded ? "is-loaded" : ""} ${wrapperClassName}`}>
+    <div className={`img-frame ${loaded ? "is-loaded" : ""} ${wrapperClassName}`}>
       <img
         src={src}
         alt={alt}
@@ -61,7 +61,7 @@ export const SmartImage = ({
         onError={() => setLoaded(true)}
         {...rest}
       />
-    </span>
+    </div>
   );
 };
 
