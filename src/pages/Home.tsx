@@ -2,6 +2,7 @@ import { Bot, Boxes, Factory, MessagesSquare, ShoppingBag } from "lucide-react";
 import { AutomationPanel, ContactBand, Eyebrow, NexPosScreen, ProductLink } from "@/components/nexivo/Visuals";
 import { LetsTalkButton } from "@/components/nexivo/LetsTalk";
 import { Counter, Reveal, RotatingWord, SmartImage } from "@/components/nexivo/Motion";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import CapabilityShowcase from "@/components/nexivo/CapabilityShowcase";
 import { products } from "@/data/products";
@@ -35,7 +36,7 @@ const Home = () => {
           <Eyebrow>AI · Automation · Business software</Eyebrow>
           <h1 className="display-title">We build the <em><RotatingWord words={["agents", "automations", "systems", "software"]} /></em> that run your business.</h1>
           <p className="lede">From the first customer message to the final invoice—work that used to need people watching it now runs itself.</p>
-          <div className="flex flex-wrap gap-3"><LetsTalkButton>Let’s talk</LetsTalkButton><Button variant="neon" size="xl" asChild><a href="/products/nexpos">Meet NexPos</a></Button></div>
+          <div className="flex flex-wrap gap-3"><LetsTalkButton>Let’s talk</LetsTalkButton><Button variant="neon" size="xl" asChild><Link to="/products/nexpos">Meet NexPos</Link></Button></div>
         </div>
         <div className="hero-collage float-slow" aria-label="Nexivo automation in motion">
           <SmartImage wrapperClassName="hero-photo-main" className="hero-photo-main" src={intelligence} alt="Layered data planes representing Nexivo's connected intelligence" width={1600} height={1100} />
