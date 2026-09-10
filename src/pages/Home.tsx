@@ -2,9 +2,9 @@ import { ArrowRight, Bot, Boxes, Factory, MessagesSquare, ShoppingBag } from "lu
 import { Button } from "@/components/ui/button";
 import { ContactBand, Eyebrow, NexPosScreen, ProductLink } from "@/components/nexivo/Visuals";
 import { products } from "@/data/products";
-import hospitality from "@/assets/nexivo-hospitality.jpg";
-import factory from "@/assets/nexivo-factory.jpg";
-import aiOps from "@/assets/nexivo-ai-ops.jpg";
+import hospitality from "@/assets-pointers/nexivo-hospitality.jpg.asset.json";
+import factory from "@/assets-pointers/nexivo-factory.jpg.asset.json";
+import aiOps from "@/assets-pointers/nexivo-ai-ops.jpg.asset.json";
 
 const Home = () => {
   document.title = "Nexivo — AI, Automation & Business Software";
@@ -18,9 +18,9 @@ const Home = () => {
           <div className="flex flex-wrap gap-3"><Button variant="hero" size="xl" asChild><a href="mailto:nexivoservices@gmail.com">Start a project <ArrowRight /></a></Button><Button variant="neon" size="xl" asChild><a href="/products/nexpos">Meet NexPos</a></Button></div>
         </div>
         <div className="hero-collage" aria-label="Nexivo connected business ecosystem">
-          <img className="hero-photo-main" src={hospitality} alt="Restaurant team working around a connected point of sale" width={1600} height={1100} />
+          <img className="hero-photo-main" src={hospitality.url} alt="Restaurant team working around a connected point of sale" width={1600} height={1100} />
           <div className="hero-screen"><NexPosScreen compact /></div>
-          <img className="hero-photo-secondary" src={aiOps} alt="Business team managing AI-driven customer operations" width={1600} height={1100} />
+          <img className="hero-photo-secondary" src={aiOps.url} alt="Business team managing AI-driven customer operations" width={1600} height={1100} />
           <div className="floating-note"><Bot /><span><b>AI agent</b>Lead qualified</span></div>
         </div>
       </div>
@@ -28,7 +28,7 @@ const Home = () => {
     </section>
 
     <section className="section container flagship-grid">
-      <div className="flagship-photo"><img src={hospitality} alt="Busy modern restaurant service powered by NexPos" loading="lazy" width={1600} height={1100} /><span>Flagship product</span></div>
+      <div className="flagship-photo"><img src={hospitality.url} alt="Busy modern restaurant service powered by NexPos" loading="lazy" width={1600} height={1100} /><span>Flagship product</span></div>
       <div className="flagship-copy"><Eyebrow>NexPos by Nexivo</Eyebrow><h2 className="section-title">Hospitality software that knows the dinner rush.</h2><p className="lede">POS, kitchen, recipes, stock, tax compliance and owner reporting—built together for food businesses in Pakistan.</p><ProductLink to="/products/nexpos">Enter NexPos</ProductLink></div>
       <div className="flagship-ui"><NexPosScreen /></div>
     </section>
@@ -49,7 +49,7 @@ const Home = () => {
     </section>
 
     <section className="section container visual-case">
-      <img src={factory} alt="Connected factory floor using Nexivo software" loading="lazy" width={1600} height={1100}/>
+      <img src={factory.url} alt="Connected factory floor using Nexivo software" loading="lazy" width={1600} height={1100}/>
       <div className="case-caption"><Eyebrow>From floor to forecast</Eyebrow><h2>We turn operational complexity into one clear view.</h2><ProductLink to="/work">See our portfolio</ProductLink></div>
       <div className="case-metric"><Factory/><b>Production traced</b><span>Material → recipe → batch → report</span></div>
     </section>

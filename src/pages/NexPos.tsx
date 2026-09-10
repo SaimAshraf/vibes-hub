@@ -1,7 +1,7 @@
 import { ChefHat, CloudOff, MapPinCheck, MessageCircleMore, MonitorSmartphone, ReceiptText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactBand, Eyebrow, FeatureList, NexPosScreen, OfflineBadge } from "@/components/nexivo/Visuals";
-import hospitality from "@/assets/nexivo-hospitality.jpg";
+import hospitality from "@/assets-pointers/nexivo-hospitality.jpg.asset.json";
 
 const groups = [
   ["Core operations", "POS & billing", "Table management", "Kitchen display", "Recipe costing"],
@@ -21,7 +21,7 @@ const NexPos = () => {
   document.title = "NexPos — Restaurant & Café POS by Nexivo";
   return <>
     <section className="nexpos-hero">
-      <img src={hospitality} alt="NexPos running inside a busy restaurant kitchen" width={1600} height={1100}/>
+      <img src={hospitality.url} alt="NexPos running inside a busy restaurant kitchen" width={1600} height={1100}/>
       <div className="nexpos-shade" />
       <div className="container nexpos-hero-copy"><Eyebrow>NexPos · by Nexivo</Eyebrow><h1 className="display-title">Built for hospitality.<br/><em>Not adapted from retail.</em></h1><p className="lede">A complete POS and business platform for restaurants, cafés and food businesses across Pakistan.</p><Button variant="hero" size="xl" asChild><a href="mailto:nexivoservices@gmail.com?subject=NexPos%20Demo">Request your demo</a></Button></div>
       <div className="nexpos-float-screen"><NexPosScreen /><OfflineBadge /></div>
