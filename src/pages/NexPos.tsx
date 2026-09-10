@@ -26,13 +26,12 @@ const plans = [
 ];
 
 const NexPos = () => {
-  const { open } = useLetsTalk();
   document.title = "NexPos — Restaurant & Café POS by Nexivo";
   return <>
     <section className="nexpos-hero">
       <img src={hospitality} alt="NexPos running inside a busy restaurant kitchen" width={1600} height={1100}/>
       <div className="nexpos-shade" />
-      <div className="container nexpos-hero-copy"><Eyebrow>NexPos · by Nexivo</Eyebrow><h1 className="display-title">Built for hospitality.<br/><em>Not adapted from retail.</em></h1><p className="lede">A complete POS and business platform for restaurants, cafés and food businesses across Pakistan.</p><LetsTalkButton>Request your demo</LetsTalkButton></div>
+      <div className="container nexpos-hero-copy"><Eyebrow>NexPos · by Nexivo</Eyebrow><h1 className="display-title">Built for hospitality.<br/><em>Not adapted from retail.</em></h1><p className="lede">A complete POS and business platform for restaurants, cafés and food businesses across Pakistan.</p><div className="flex flex-wrap items-center gap-4"><SiteButton /><SocialRow socials={nexposSocials} label="Follow NexPos" /></div></div>
       <div className="nexpos-float-screen"><NexPosScreen /><OfflineBadge /></div>
     </section>
 
@@ -43,7 +42,7 @@ const NexPos = () => {
 
     <section className="section section-contrast"><div className="container"><Eyebrow>22 modules · one platform</Eyebrow><h2 className="section-title max-w-3xl">Counter, kitchen, stockroom and office—finally in sync.</h2><div className="module-groups">{groups.map(g=><article key={g[0]}><h3>{g[0]}</h3><FeatureList items={g.slice(1)}/></article>)}</div></div></section>
 
-    <section className="section container"><div className="section-heading"><div><Eyebrow>Plans</Eyebrow><h2 className="section-title">Start where you are. Grow without switching.</h2></div><p>Monthly pricing in Pakistani Rupees. Annual billing savings are available.</p></div><div className="pricing-grid">{plans.map((p,i)=><article className={i===1?'featured':''} key={p.n}><small>{p.a}</small><h3>{p.n}</h3><strong>{p.p}<span>/ month</span></strong><FeatureList items={p.f}/><Button variant={i===1?'hero':'neon'} className="w-full" onClick={open}>Choose {p.n}</Button></article>)}</div></section>
+    <section className="section container"><div className="section-heading"><div><Eyebrow>Plans</Eyebrow><h2 className="section-title">Start where you are. Grow without switching.</h2></div><p>Monthly pricing in Pakistani Rupees. Annual billing savings are available.</p></div><div className="pricing-grid">{plans.map((p,i)=><article className={i===1?'featured':''} key={p.n}><small>{p.a}</small><h3>{p.n}</h3><strong>{p.p}<span>/ month</span></strong><FeatureList items={p.f}/><Button variant={i===1?'hero':'neon'} className="w-full" asChild><a href={liveSites.nexpos} target="_blank" rel="noopener noreferrer">Get {p.n} on nexposltd.com <ArrowUpRight className="size-4" /></a></Button></article>)}</div></section>
     <section className="section container journey"><Eyebrow>Guided implementation</Eyebrow><h2 className="section-title">From your menu to your first live shift.</h2><div>{["Discovery call","Configuration","Data migration","Team training","Go live & support"].map((x,i)=><span key={x}><b>0{i+1}</b>{x}</span>)}</div></section>
     <ContactBand title="See NexPos live on your own menu." />
   </>;
