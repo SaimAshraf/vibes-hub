@@ -1,7 +1,9 @@
 import logo from "@/assets/nexivo-logo.png";
 import { LetsTalkButton } from "./LetsTalk";
-import { Instagram } from "lucide-react";
+import { Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { SocialRow } from "./Socials";
+import { EMAIL, PHONE_DISPLAY, PHONE_TEL, nexivoSocials, nexposSocials } from "@/data/site";
 
 export const Footer = () => (
   <footer className="border-t border-border mt-10">
@@ -32,16 +34,13 @@ export const Footer = () => (
         <div className="md:col-span-4">
           <div className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-4">// channel</div>
           <LetsTalkButton size="lg">Let’s talk</LetsTalkButton>
-          <a href="mailto:nexivoservices@gmail.com" className="block mt-4 text-sm text-muted-foreground hover:text-primary transition break-all">nexivoservices@gmail.com</a>
-          <div className="mt-4">
-            <a
-              href="https://www.instagram.com/nexivoservices?utm_source=qr"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-border hover:border-primary hover:text-primary transition font-mono text-xs"
-            >
-              <Instagram className="size-4" /> @nexivoservices
-            </a>
+          <a href={`mailto:${EMAIL}`} className="block mt-4 text-sm text-muted-foreground hover:text-primary transition break-all">{EMAIL}</a>
+          <a href={`tel:${PHONE_TEL}`} className="mt-2 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition">
+            <Phone className="size-4" /> {PHONE_DISPLAY}
+          </a>
+          <div className="mt-5 space-y-3">
+            <SocialRow socials={nexivoSocials} label="Nexivo" />
+            <SocialRow socials={nexposSocials} label="NexPos" />
           </div>
         </div>
       </div>

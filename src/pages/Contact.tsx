@@ -1,6 +1,8 @@
-import { Instagram, Mail, MoveUpRight } from "lucide-react";
+import { Mail, MoveUpRight, Phone } from "lucide-react";
 import { Eyebrow } from "@/components/nexivo/Visuals";
 import { useLetsTalk } from "@/components/nexivo/LetsTalk";
+import { SocialRow } from "@/components/nexivo/Socials";
+import { EMAIL, PHONE_DISPLAY, PHONE_TEL, nexivoSocials, nexposSocials } from "@/data/site";
 
 const options = [
   { n: "01", s: "AI & automation", t: "Find what to automate" },
@@ -28,8 +30,12 @@ const Contact = () => {
         ))}
       </div>
       <div className="contact-direct">
-        <a href="mailto:nexivoservices@gmail.com"><Mail />nexivoservices@gmail.com</a>
-        <a href="https://www.instagram.com/nexivoservices?utm_source=qr" target="_blank" rel="noreferrer"><Instagram />@nexivoservices</a>
+        <a href={`mailto:${EMAIL}`}><Mail />{EMAIL}</a>
+        <a href={`tel:${PHONE_TEL}`}><Phone />{PHONE_DISPLAY}</a>
+      </div>
+      <div className="flex flex-wrap gap-8">
+        <SocialRow socials={nexivoSocials} label="Nexivo" />
+        <SocialRow socials={nexposSocials} label="NexPos" />
       </div>
     </section>
   );
