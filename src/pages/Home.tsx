@@ -1,4 +1,4 @@
-import { Bot, Boxes, BrainCircuit, Factory, Gauge, MessagesSquare, PhoneCall, ShoppingBag, Sparkles, Workflow } from "lucide-react";
+import { Bot, Boxes, Factory, MessagesSquare, ShoppingBag } from "lucide-react";
 import { AutomationPanel, ContactBand, Eyebrow, NexPosScreen, ProductLink } from "@/components/nexivo/Visuals";
 import { LetsTalkButton } from "@/components/nexivo/LetsTalk";
 import { Counter, Reveal, RotatingWord, SmartImage } from "@/components/nexivo/Motion";
