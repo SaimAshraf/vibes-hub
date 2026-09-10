@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { products } from "@/data/products";
 import { ContactBand, Eyebrow, FeatureList, ProductLink } from "@/components/nexivo/Visuals";
 import { LetsTalkButton } from "@/components/nexivo/LetsTalk";
+import { Button } from "@/components/ui/button";
 import NotFound from "./NotFound";
 
 const ProductDetail = () => {
