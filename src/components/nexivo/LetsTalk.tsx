@@ -1,8 +1,8 @@
 import { createContext, useContext, useMemo, useState } from "react";
-import { ArrowLeft, ArrowRight, Check, Copy, Instagram, Mail, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, Copy, Instagram, Mail, Phone, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const EMAIL = "nexivoservices@gmail.com";
+import { EMAIL, PHONE_DISPLAY, PHONE_TEL, nexivoSocials } from "@/data/site";
 
 type Answers = { need?: string; business?: string; timing?: string; name?: string; contact?: string };
 
@@ -108,8 +108,11 @@ export const LetsTalkProvider = ({ children }: { children: React.ReactNode }) =>
                       {copied ? <><Check className="size-4" /> Copied</> : <><Copy className="size-4" /> Copy message</>}
                     </button>
                   </div>
-                  <a className="lt-insta" href="https://www.instagram.com/nexivoservices?utm_source=qr" target="_blank" rel="noreferrer">
+                  <a className="lt-insta" href={nexivoSocials.instagram} target="_blank" rel="noreferrer">
                     <Instagram className="size-4" /> Rather message on Instagram
+                  </a>
+                  <a className="lt-insta" href={`tel:${PHONE_TEL}`}>
+                    <Phone className="size-4" /> Or call {PHONE_DISPLAY}
                   </a>
                 </>
               )}
