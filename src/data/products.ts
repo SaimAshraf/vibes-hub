@@ -1,4 +1,4 @@
-import hospitality from "@/assets/nexivo-hospitality.jpg";
+import mess from "@/assets/nexivo-mess.jpg";
 import factory from "@/assets/nexivo-factory.jpg";
 import commerce from "@/assets/nexivo-commerce.jpg";
 
