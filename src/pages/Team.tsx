@@ -5,13 +5,18 @@ import { Reveal } from "@/components/nexivo/Motion";
 import { LetsTalkButton } from "@/components/nexivo/LetsTalk";
 import { founders, disciplines } from "@/data/team";
 
-/** Adds is-lit when the element is mostly in view (B&W → colour) */
+/** Reveal once: tall mobile chapters must not need to fit inside the viewport. */
 const useLit = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [lit, setLit] = useState(false);
   useEffect(() => {
     const el = ref.current; if (!el) return;
-    const io = new IntersectionObserver(([e]) => setLit(e.isIntersecting), { threshold: 0.45 });
+    if (!("IntersectionObserver" in window)) { setLit(true); return; }
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      setLit(true);
+      io.disconnect();
+    }, { threshold: 0.08 });
     io.observe(el); return () => io.disconnect();
   }, []);
   return { ref, lit };
@@ -23,7 +28,7 @@ const Chapter = ({ f, i }: { f: typeof founders[number]; i: number }) => {
     <article ref={ref} className={`tm-chapter ${i % 2 ? "is-flip" : ""} ${lit ? "is-lit" : ""}`}>
       <span className="tm-ghost" aria-hidden="true">{f.role}</span>
       <div className="tm-portrait">
-        <img src={f.img} alt={`${f.name}, ${f.title} of Nexivo`} width={640} height={800} loading="lazy" />
+        <img src={f.img} alt={`${f.name}, ${f.title} of Nexivo`} width={640} height={800} loading="lazy" decoding="async" />
         <i className="tm-scan" />
         <b className="tm-index">0{i + 1}</b>
       </div>
@@ -51,12 +56,12 @@ const Team = () => {
           </h1>
           <p className="lede">Four founders. One connected company — technology, vision, operations and growth working as one.</p>
         </div>
-        <div className="tm-strips" aria-hidden="true">
+        <div className="tm-strips" aria-label="Nexivo founders">
           {founders.map((f, i) => (
             <div key={f.name} className="tm-strip" style={{ animationDelay: `${0.3 + i * 0.15}s` }}>
-              <img src={f.img} alt="" width={640} height={800} />
+              <img src={f.img} alt={f.name} width={640} height={800} decoding="async" />
               <i className="tm-scan" style={{ animationDelay: `${1.2 + i * 0.3}s` }} />
-              <span>{f.role}</span>
+              <span><b className="tm-strip-name">{f.short}</b>{f.role}</span>
             </div>
           ))}
         </div>
