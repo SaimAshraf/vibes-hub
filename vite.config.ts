@@ -1,7 +1,6 @@
-import { defineConfig } from "vite";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { copyFileSync, mkdirSync } from "node:fs";
 import { componentTagger } from "lovable-tagger";
 
 const appRoutes = [
@@ -14,19 +13,18 @@ const appRoutes = [
   "products/pims",
   "work",
   "about",
+  "team",
   "contact",
 ];
 
-const createRouteEntries = () => ({
+const createRouteEntries = (): Plugin => ({
   name: "create-route-entries",
-  closeBundle() {
+  enforce: "post",
+  generateBundle(_options, bundle) {
+    const entry = bundle["index.html"];
+    if (!entry || entry.type !== "asset") return;
     for (const route of appRoutes) {
-      const routeDirectory = path.resolve(__dirname, "dist", route);
-      mkdirSync(routeDirectory, { recursive: true });
-      copyFileSync(
-        path.resolve(__dirname, "dist/index.html"),
-        path.resolve(routeDirectory, "index.html"),
-      );
+      this.emitFile({ type: "asset", fileName: `${route}/index.html`, source: entry.source });
     }
   },
 });
