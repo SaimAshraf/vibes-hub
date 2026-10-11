@@ -29,6 +29,7 @@ export const Footer = () => (
             <li><Link to="/products" className="hover:text-primary transition">Products</Link></li>
             <li><Link to="/products/nexpos" className="hover:text-primary transition">NexPos</Link></li>
             <li><Link to="/work" className="hover:text-primary transition">Work</Link></li>
+            <li><Link to="/team" className="hover:text-primary transition">Team</Link></li>
           </ul>
         </div>
         <div className="md:col-span-4">

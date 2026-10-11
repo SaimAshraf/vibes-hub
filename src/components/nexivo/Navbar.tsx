@@ -11,6 +11,7 @@ const links = [
   { href: "/products/nexpos", label: "NexPos" },
   { href: "/work", label: "Work" },
   { href: "/about", label: "About" },
+  { href: "/team", label: "Team" },
 ];
 
 export const Navbar = () => {
