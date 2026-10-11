@@ -362,8 +362,8 @@
   .tm-face{backface-visibility:visible;-webkit-backface-visibility:visible}
   .tm-face img{object-position:center 20%;transition:filter .45s,transform .6s cubic-bezier(.16,1,.3,1)}
   .tm-card.is-flipped .tm-face img{filter:none;transform:scale(1.06)}
-  .tm-face>span{font-size:1.35rem;padding:1.5rem .75rem .65rem;transition:opacity .3s}
-  .tm-card.is-flipped .tm-face>span{opacity:0}
+  .tm-face:not(.tm-back)>span{font-size:1.35rem;padding:1.5rem .75rem .65rem;transition:opacity .3s}
+  .tm-card.is-flipped .tm-face:not(.tm-back)>span{opacity:0}
   .tm-back{transform:translateY(101%);inset:auto 0 0 0;height:auto;padding:.85rem;gap:.2rem;background:hsl(var(--background)/.92);backdrop-filter:blur(8px);border-width:1px 0 0;border-radius:0;transition:transform .5s cubic-bezier(.16,1,.3,1)}
   .tm-card.is-flipped .tm-back{transform:translateY(0)}
   .tm-back b{font-size:2rem}
