@@ -29,7 +29,7 @@ const Chapter = ({ f, i }: { f: typeof founders[number]; i: number }) => {
       </div>
       <div className="tm-copy">
         <span className="tm-role">{f.role} · {f.title}</span>
-        <h2>{f.name.split(" ").map((w, k) => <span key={k} style={{ transitionDelay: `${k * 90}ms` }}>{w} </span>)}</h2>
+        <h2>{f.name.split(" ").map((w, k) => <span key={k} style={{ transitionDelay: `${k * 90}ms` }}>{w}</span>)}</h2>
         <p>{f.focus}</p>
         <a href={f.linkedin} target="_blank" rel="noopener noreferrer" className="tm-link"><Linkedin className="size-4" /> LinkedIn <ArrowUpRight className="size-4" /></a>
       </div>
@@ -46,7 +46,7 @@ const Team = () => {
         <div className="tm-hero-copy">
           <Eyebrow>Founders · Nexivo</Eyebrow>
           <h1 className="display-title">
-            {["The", "people", "behind", "the"].map((w, k) => <span key={w + k} className="tm-word" style={{ animationDelay: `${0.2 + k * 0.12}s` }}>{w} </span>)}
+            {["The", "people", "behind", "the"].map((w, k) => <span key={w + k} className="tm-word" style={{ animationDelay: `${0.2 + k * 0.12}s` }}>{w}</span>)}
             <em className="tm-word" style={{ animationDelay: ".75s" }}>systems.</em>
           </h1>
           <p className="lede">Four founders. One connected company — technology, vision, operations and growth working as one.</p>
