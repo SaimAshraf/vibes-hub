@@ -7,7 +7,7 @@ import { EMAIL, PHONE_DISPLAY, PHONE_TEL, nexivoSocials } from "@/data/site";
 type Answers = { need?: string; business?: string; timing?: string; name?: string; contact?: string };
 
 const steps = [
-  { key: "need", q: "What do you need help with?", options: ["AI agents & chatbots", "Automation of daily work", "Business software (POS / ERP)", "Not sure yet — advise me"] },
+  { key: "need", q: "What do you need help with?", options: ["AI agents & chatbots", "Automation of daily work", "Business software (POS / ERP)", "A website", "Not sure yet — advise me"] },
   { key: "business", q: "What kind of business is it?", options: ["Restaurant / café", "Factory / production", "Retail & e-commerce", "Services / other"] },
   { key: "timing", q: "How soon do you want to start?", options: ["As soon as possible", "This quarter", "Just exploring"] },
 ] as const;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import logo from "@/assets/nexivo-logo.png";
+import logo from "@/assets/home/nexivo-mark.png";
 import { LetsTalkButton } from "./LetsTalk";
 
 const links = [

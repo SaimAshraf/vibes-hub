@@ -1,4 +1,4 @@
-import logo from "@/assets/nexivo-logo.png";
+import logo from "@/assets/home/nexivo-mark.png";
 import { LetsTalkButton } from "./LetsTalk";
 import { Phone } from "lucide-react";
 import { Link } from "react-router-dom";
